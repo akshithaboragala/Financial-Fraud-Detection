@@ -328,11 +328,16 @@ elif page == "🚨 Fraud Detection":
 
 
  # TRANSACTION ANALYTICS
-
-
 elif page == "📊 Transaction Analytics":
 
     st.title("📊 Transaction Analytics")
+
+    if df is None:
+        st.warning(
+            "Transaction Analytics requires the PaySim dataset "
+            "(paysim.csv), which is not included in the deployed repository."
+        )
+        st.stop()
 
     col1, col2 = st.columns(2)
 
@@ -368,8 +373,6 @@ elif page == "📊 Transaction Analytics":
         sample_df[["amount"]]
         .reset_index(drop=True)
     )
-
-
 
 
 elif page == "🤖 Model Performance":
@@ -451,8 +454,6 @@ elif page == "🤖 Model Performance":
     )
 
 
-
-
 elif page == "🔍 Explainable AI":
 
     st.title("🔍 Explainable AI")
@@ -488,13 +489,10 @@ elif page == "🔍 Explainable AI":
     )
 
 
-
 elif page == "🕸️ Graph Analysis":
 
     st.title("🕸️ Transaction Graph Analysis")
 
-    # Convert saved graph dashboard data into a dictionary.
-    # Values are converted to float before number formatting.
     graph_dict = dict(
         zip(
             graph_dashboard_data["Metric"].astype(str),
@@ -547,6 +545,7 @@ elif page == "🕸️ Graph Analysis":
         use_container_width=True
     )
 
+
 elif page == "📈 Concept Drift":
 
     st.title("📈 Concept Drift Monitoring")
@@ -571,8 +570,6 @@ elif page == "📈 Concept Drift":
         drift_df,
         use_container_width=True
     )
-
-
 
 
 elif page == "🧠 TGN Analysis":
@@ -630,8 +627,6 @@ elif page == "🧠 TGN Analysis":
     )
 
 
-
-
 elif page == "📥 Download Results":
 
     st.title("📥 Download Project Results")
@@ -675,9 +670,14 @@ elif page == "📥 Download Results":
             )
 
 
-
 st.markdown("---")
 
 st.caption(
     "Financial Fraud Detection and Transaction Pattern Analysis using ML"
 )
+
+
+
+        
+    
+        
