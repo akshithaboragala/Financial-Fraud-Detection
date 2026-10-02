@@ -4,8 +4,6 @@ import pandas as pd
 import streamlit as st
 
 
-
-
 st.set_page_config(
     page_title="Financial Fraud Detection",
     page_icon="🛡️",
@@ -15,9 +13,7 @@ st.set_page_config(
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
-
 # LOAD DATA AND MODELS
- 
 
 @st.cache_data
 def load_data():
@@ -25,7 +21,6 @@ def load_data():
     if os.path.exists(data_path):
         return pd.read_csv(data_path, nrows=100000)
     return None
-    )
 
 
 @st.cache_resource
@@ -33,6 +28,21 @@ def load_model():
     return joblib.load(
         os.path.join(BASE_DIR, "xgb_fraud_model.pkl")
     )
+
+
+@st.cache_data
+def load_csv(filename):
+    return pd.read_csv(
+        os.path.join(BASE_DIR, filename)
+    )
+
+
+@st.cache_data
+def load_drift():
+    drift_path = os.path.join(BASE_DIR, "adwin_drift_points.pkl")
+    if os.path.exists(drift_path):
+        return joblib.load(drift_path)
+    return []
 
 
 @st.cache_data
