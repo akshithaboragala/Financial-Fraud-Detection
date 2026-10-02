@@ -1,0 +1,10 @@
+Metric,Value
+Total Nodes,151551.0
+Total Edges,100000.0
+Total Communities,51551.0
+Largest Community,79.0
+Fraud Communities,115.0
+Fraud Transactions,116.0
+Fraud-Related Nodes,231.0
+Average Degree,1.3197
+Maximum Degree,78.0

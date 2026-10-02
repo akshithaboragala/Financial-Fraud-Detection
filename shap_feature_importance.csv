@@ -1,0 +1,12 @@
+Feature,Mean_Absolute_SHAP
+newbalanceOrig,2.655647
+oldbalanceOrg,2.5561883
+amount,1.8014616
+type_CASH_OUT,0.8576768
+type_TRANSFER,0.64874494
+type_PAYMENT,0.5639764
+newbalanceDest,0.5400289
+step,0.40237918
+oldbalanceDest,0.35119107
+type_CASH_IN,0.00043671037
+type_DEBIT,0.0
