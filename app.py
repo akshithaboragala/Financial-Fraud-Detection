@@ -21,9 +21,10 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 @st.cache_data
 def load_data():
-    return pd.read_csv(
-        os.path.join(BASE_DIR, "paysim.csv"),
-        nrows=100000
+    data_path = os.path.join(BASE_DIR, "paysim.csv")
+    if os.path.exists(data_path):
+        return pd.read_csv(data_path, nrows=100000)
+    return None
     )
 
 
@@ -43,9 +44,10 @@ def load_csv(filename):
 
 @st.cache_data
 def load_drift():
-    return joblib.load(
-        os.path.join(BASE_DIR, "adwin_drift_points.pkl")
-    )
+    drift_path = os.path.join(BASE_DIR, "adwin_drift_points.pkl")
+    if os.path.exists(drift_path):
+        return joblib.load(drift_path)
+    return []
 
 
 # Load project files
